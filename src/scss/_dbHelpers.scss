@@ -1,0 +1,31 @@
+// File to put all wasmo variables, mixins, or other scss helpers
+
+// $db-primary: #2b75ff;
+// $db-secondary: #261da5;
+
+$db-primary: #6dda08;
+$db-secondary: #2f790d;
+
+@mixin backgroundFullCentered($url) {
+    background-image: url($url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+@mixin gradientBackground($color1, $color2, $type) {
+    background: $color2;
+    background: -webkit-linear-gradient($type, $color1, $color2);
+    background: linear-gradient($type, $color1, $color2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #ffffff;
+}
+
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

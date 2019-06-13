@@ -1,0 +1,296 @@
+@import "./../../scss/_dbHelpers.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    background-color: #282c34;
+    height: 100%;
+	width: 100%;
+	min-height: 100vh;
+    max-width: 100vw;
+
+    #nav {
+       position: absolute;
+       height: 48px;
+        width: 100%;
+        margin: 0 0 3em -10px;
+        padding: 0;
+        list-style: none; 
+        background: #282c34;
+        }
+    
+        .logout, .profile {
+            background: none;
+            border: none;
+            color: $db-primary;
+            padding: 15px;
+            &:hover {
+                border-radius: 0px;
+                box-shadow: inset  12.5em 0 0 0 $db-primary;
+                color: white;
+                transition: box-shadow 0.3s ease-in-out;
+            }
+        }
+    
+    .center-space {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 800px;
+        color: white;
+        margin: 80px 0px;
+        &:nth-child(1) {
+            margin-top: 80px;
+        }
+    }
+
+    .acc-bg {
+        color: white;
+    }
+
+    .accordion {
+        position: absolute;
+        left: 10%;
+        top: 100px;
+    }
+
+    .image {
+        width: 400px;
+        height: 260px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .i1 {
+        background-image: url("./../../images/skłon.png");
+    } 
+
+    .i2 {
+        background-image: url("./../../images/skłonb.png");
+    }
+
+    .i3 {
+        background-image: url("./../../images/szpagat.png");
+    }
+
+    .save {
+        position: absolute;
+        width: 130px;
+        height: 45px;
+        padding: 0px;
+        top: 68%;
+        right: 3%;
+    }
+
+    .question-text {
+        margin-right: 10px;
+    }
+
+    .group { 
+        position:relative; 
+        margin-bottom: 18px;
+        margin-top: 10px; 
+        margin-left: 10px;
+    }
+    
+    input {
+        font-size:16px;
+        padding:10px 10px 10px 5px;
+        display:block;
+        width:300px;
+        border:none;
+        border-bottom:1px solid $db-primary;
+        background-color: transparent;
+        color: white;
+    
+        &:focus {
+            outline: none;
+        }
+    }
+    
+    span.label {
+        color:#999; 
+        font-size:16px;
+        font-weight:normal;
+        position:absolute;
+        pointer-events:none;
+        left:5px;
+        top:10px;
+        transition:0.2s ease all; 
+        -moz-transition:0.2s ease all; 
+        -webkit-transition:0.2s ease all;
+    }
+      
+      /* active state */
+    input:focus ~ span.label, input:valid ~ span.label {
+        top:-20px;
+        font-size:14px;
+        color:$db-primary;
+    }
+      
+    .bar {
+        position:relative; 
+        display:block; 
+        width:300px;
+        
+        &:before, &:after {
+            content:'';
+            height:2px; 
+            width:0;
+            bottom:1px; 
+            position:absolute;
+            background:$db-primary; 
+            transition:0.2s ease all; 
+            -moz-transition:0.2s ease all; 
+            -webkit-transition:0.2s ease all;
+        }
+    
+        &:before {
+            left: 50%;
+        }
+        &:after {
+            right: 50%;
+        }
+    }
+      
+      /* active state */
+    input:focus ~ .bar:before, input:focus ~ .bar:after {
+        width:50%;
+    }
+      
+    .highlight {
+        position:absolute;
+        height:60%; 
+        width:100px; 
+        top:25%; 
+        left:0;
+        pointer-events:none;
+        opacity:0.5;
+    }
+      
+      /* active state */
+      input:focus ~ .highlight {
+        -webkit-animation:inputHighlighter 0.3s ease;
+        -moz-animation:inputHighlighter 0.3s ease;
+        animation:inputHighlighter 0.3s ease;
+      }
+      
+      /* ANIMATIONS ================ */
+      @-webkit-keyframes inputHighlighter {
+          from { background:$db-primary; }
+        to 	{ width:0; background:transparent; }
+      }
+      @-moz-keyframes inputHighlighter {
+          from { background:$db-primary; }
+        to 	{ width:0; background:transparent; }
+      }
+      @keyframes inputHighlighter {
+          from { background:$db-primary; }
+        to 	{ width:0; background:transparent; }
+      }
+      
+      @keyframes show {
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+    
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+}
+
+.steps-container {
+    display: flex;
+    position: absolute;
+    height: 0px;
+    bottom: 100px;
+    padding: 24px;
+    color: rgba(0, 0, 0, 0.87);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    .action-buttons {
+        display: inline-block;
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            margin-left: 10px;
+        }
+        .disabled {
+            background-color: #bcbcbc;
+            border-color: #bcbcbc;
+            pointer-events: none;
+        }        
+    }
+
+    .line1, .line2 {
+        position: absolute;
+        height: 0px;
+        border-bottom: 1px solid #bcbcbc;
+    }
+
+    .line1 {
+        width: 70px;
+        left: 23%;
+        top: 50px;
+    }
+
+    .line2 {
+        width: 72px;
+        left: 51%;
+        top: 50px;
+    }
+
+
+    .step-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px;
+        background: transparent;
+        border: none;
+        .icon-container-inactive, .icon-container-active, .icon-container-finished {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+        .icon-container-inactive {
+            background: #bcbcbc;
+        }
+        .icon-container-active {
+            color: white;
+            background: $db-primary;
+        }
+        .icon-container-finished {
+            color: transparent;
+            background-color: $db-primary;
+            @include backgroundFullCentered("./../../images/sucess.png");
+            background-attachment: initial;
+        }
+    }
+
+    .text-container-active, .text-container-finished {
+        text-transform: none;
+        display: inline-flex;
+        color: $db-primary;
+    }
+
+    .text-container-inactive {
+        text-transform: none;
+        display: inline-flex;
+        color: #bcbcbc;
+    }
+}

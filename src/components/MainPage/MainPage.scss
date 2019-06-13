@@ -1,0 +1,82 @@
+@import "./../../scss/_dbHelpers.scss";
+
+.MainPage {
+    text-align: center;
+    background-color: #282c34;
+    height: 100%;
+	width: 100%;
+	min-height: 100vh;
+	max-width: 100vw;
+  }
+
+  #nav {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	margin: 0 0 3em -10px;
+	padding: 0;
+	list-style: none; 
+	background: #282c34;
+	}
+
+	.logout, .profile {
+		background: none;
+		border: none;
+		color: $db-primary;
+		padding: 15px;
+		&:hover {
+			border-radius: 0px;
+			box-shadow: inset  12.5em 0 0 0 $db-primary;
+			color: white;
+			transition: box-shadow 0.3s ease-in-out;
+		}
+	}
+  
+  .MainPage-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    h1 {
+      margin-bottom: 30px;
+    }
+  }
+
+  .MainPage-content {
+	  max-width: 100%;
+	  display: flex;
+	  justify-content: space-around;
+	  color: white;
+	  .instruction {
+		  margin-top: 70px;
+		  text-align: center;
+		  margin-left: 30px;
+		  max-width: 20%;
+		  p {
+			  font-size: 20px;
+				font-weight: 300;
+				color: white;
+		  }
+		  h2 {
+			  font-size: 30px;
+		  }
+	  }
+
+	  .photo-container {
+		@for $i from 1 through 6 {
+			.photo-button-#{$i} {
+			  @include backgroundFullCentered("./../../images/pain#{$i}.png");
+			  width: 250px;
+			  height: 200px;
+			  margin: 10px 15px;
+			  border-radius: 0px;
+			  border: none;
+			  background-attachment: initial;
+			  &:hover {
+				  border: solid 3px $db-primary;
+			  }
+			}	
+		}
+	  }
+  }
